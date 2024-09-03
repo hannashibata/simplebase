@@ -1,3 +1,4 @@
-# simplebase
+# Simple Base
 Simple set of starter html, css, and js for a simple static website.
-View my site https://hannashibata.github.io/simplebase/
+
+[View Site](https://hannashibata.github.io/simplebase/)
