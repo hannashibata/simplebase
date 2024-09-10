@@ -1,3 +1,57 @@
+/* ----------------------
+-------------------------
+CSS TOC
+
+#GLOBAL STYLES
+    # GLOBAL VARIABLES
+    #GLOBAL RESET
+    # GLOBAL COLORS
+
+
+
+
+
+
+
+
+
+
+-------------------------
+---------------------- */
+
+/* GLOBAL VARIABLES */
+
+:root {
+
+    --color-body-bg: rgb(255 255 255 /1);
+    --color-text-body: rgb(0 0 0 / .8);
+    --color-text-headings: rgb(0 0 0 / 1);
+    --color-a: rgb(255 0 255 / .7);
+    --color-a-hover: rgb(255 0 255 / 1);
+}
+
+/* GLOBAL RESET*/
+* { box-sizing: border-box; }
+body { margin: 0; }
+
+
+/* GLOBAL COLORS */
+
 body {
-    background-color: yellow;
+    background-color: var(--color-body-bg);
+    color: var(--color-text-body);
+}
+
+h1, h2, h3 {
+    color: var(--color-text-headings);
+}
+
+a {
+    /* SET THE COLOR OF ALL TEXT LINKS */
+    color: var(--color-a);
+
+    &:hover {
+         /* SET THE COLOR OF ALL HOVER STATES ON TEXT LINKS */
+        color: var(--color-a-hover);
+    }
 }
