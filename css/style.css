@@ -4,7 +4,7 @@ CSS TOC
 
 #GLOBAL STYLES
     # GLOBAL VARIABLES
-    #GLOBAL RESET
+    # GLOBAL RESET
     # GLOBAL COLORS
     # GLOBAL TYPOGRAPHY
     # GLOBAL MEDIA
@@ -16,6 +16,7 @@ CSS TOC
 
 :root {
 
+    /* DEFINE ALL COMMONLY USED COLORS HERE */
     --color-body-bg: rgb(255 255 255 /1);
     --color-text-body: rgb(0 0 0 / .8);
     --color-text-headings: rgb(0 0 0 / 1);
@@ -35,7 +36,8 @@ CSS TOC
 body { margin: 0; }
 
 
-/* GLOBAL COLORS */
+/* GLOBAL COLORS
+---Set the color of the main body background and copy. */
 body {
     background-color: var(--color-body-bg);
     color: var(--color-text-body);
@@ -55,7 +57,8 @@ a {
     }
 }
 
-/* GLOBAL TYPOGRAPHY */
+/* GLOBAL TYPOGRAPHY
+---Set the font for the main body copy and headings. */
 body {
     font-family: var(--font-body);
     line-height: 1.4;
@@ -81,14 +84,14 @@ h3 {
 }
 
 p {
-    /* WIDTH LIMITTER AND WIDOW SLAYER FOR ALL PARAGRAPHS */
+    /* Width limitter and widow slayer for all paragraphs. */
     max-width: 72ch;
     text-wrap: pretty;
 }
 
-/* GLOBAL MEDIA */
+/* GLOBAL MEDIA
+---Make all the images shrinl on small screens. */
 img {
-    /* MAKE ALL THE IMAGES SHRINK ON SMALL SCREENS */
     max-width: 100%;
     height: auto;
 }
