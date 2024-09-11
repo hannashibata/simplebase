@@ -16,14 +16,14 @@ CSS TOC
 
 :root {
 
-    /* DEFINE ALL COMMONLY USED COLORS HERE */
+    /* Definition: color */
     --color-body-bg: rgb(255 255 255 /1);
     --color-text-body: rgb(0 0 0 / .8);
     --color-text-headings: rgb(0 0 0 / 1);
     --color-a: rgb(255 0 255 / .7);
     --color-a-hover: rgb(255 0 255 / 1);
 
-    /* DEFINE ALL FONTS USED HERE */
+    /* Definition: typeface */
     --font-body: Helvetica, Arial, sans-serif;
     --font-heading: Georgia, serif;
 
