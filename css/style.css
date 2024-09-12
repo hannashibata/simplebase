@@ -9,8 +9,17 @@ CSS TOC
     # GLOBAL TYPOGRAPHY
     # GLOBAL MEDIA
 
+# LAYOUT
+    # MEDIA QUERIES / BREAKOUTS (RESPONSIVE TYPOGRAPHY)
+    # CONTAINER
+    # GRID
+
 -------------------------
 ---------------------- */
+
+/* -------------------- */
+/* --  GLOBAL STYLES -- */
+/* -------------------- */
 
 /* GLOBAL VARIABLES */
 
@@ -27,17 +36,20 @@ CSS TOC
     --font-body: Helvetica, Arial, sans-serif;
     --font-heading: Georgia, serif;
 
+    /* Sizing units (not so necessary) */
+    --container-width: 1200px;
+
 }
 
 /* GLOBAL RESET 
----Change box-sizing for all to border box.
----Remove defaut 8px margin around body. */
+-- Change box-sizing for all to border box.
+-- Remove defaut 8px margin around body. */
 * { box-sizing: border-box; }
 body { margin: 0; }
 
 
 /* GLOBAL COLORS
----Set the color of the main body background and copy. */
+-- Set the color of the main body background and copy. */
 body {
     background-color: var(--color-body-bg);
     color: var(--color-text-body);
@@ -58,7 +70,7 @@ a {
 }
 
 /* GLOBAL TYPOGRAPHY
----Set the font for the main body copy and headings. */
+-- Set the font for the main body copy and headings. */
 body {
     font-family: var(--font-body);
     line-height: 1.4;
@@ -85,13 +97,87 @@ h3 {
 
 p {
     /* Width limitter and widow slayer for all paragraphs. */
-    max-width: 72ch;
+    max-width: 66ch;
     text-wrap: pretty;
 }
 
 /* GLOBAL MEDIA
----Make all the images shrinl on small screens. */
+-- Make all the images shrink on small screens. */
 img {
     max-width: 100%;
     height: auto;
+}
+
+/* ------------------- */
+/* -----  LAYOUT ----- */
+/* ------------------- */
+
+/* RESPONSIVE TYPOGRAPHY BIA MEDIA QUERIES */
+
+/* SMALL SCREENS (Mobile , 767px) */
+body {
+    /* Set the default font size */
+    font-size: 87.5%; 
+}
+
+/* MEDIUM SCREENS ( Tablets < 1200px ) */
+@media (min-width: 768px) {
+    body {
+        /* Set the medium screens and highr font size to 16px */
+        font-size: 100%; 
+    }
+}
+
+/* LARGE SCREENS ( Laptops & Desktop > 1200px ) */
+
+@media (min-width: 1200px) {
+    body {
+        /* Set the medium screens and highr font size to 16px */
+        font-size: 112.5%; 
+    }
+}
+
+/* CONTAINER
+-- Set the max width of the site.
+-- Center the container horizontally. */
+.container {
+    max-width: var(--container-width);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* GRID */
+.row {
+    --gridgap: 1em;
+}
+
+/* - All the children under row */
+.row > * {
+
+    /* - Setting bttom margin for each fraction*/
+    margin-bottom: var(--gridgap);
+}
+
+@media (min-width: 768px) {
+
+    .row {
+        /* - Create grid in 12 columns, with equal fractions */
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: var(--gridgap)
+    }
+
+    /* - Setting size for each grid */
+    .one-half { grid-column: span 6 / span 6; }
+    .one-third { grid-column: span 4 / span 4; }
+    .two-thirds { grid-column: span 8 / span 8; }
+    .one-fourth { grid-column: span 3 / span 3; }
+    .three-fourths { grid-column: span 9 / span 9; }
+
+}
+
+.demo > * {
+    background-color: #888;
+    padding: 1em;;
+    text-align: center;
 }
