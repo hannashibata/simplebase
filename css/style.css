@@ -14,6 +14,14 @@ CSS TOC
     # CONTAINER
     # GRID
 
+# SITE STRUCTURE
+    # HEADER
+        # LOGO
+        # SITE-NAV
+    # MAIN
+        # SECTIONS
+    # FOOTER
+
 -------------------------
 ---------------------- */
 
@@ -26,18 +34,24 @@ CSS TOC
 :root {
 
     /* Definition: color */
-    --color-body-bg: rgb(255 255 255 /1);
+    /* --color-body-bg: rgb(255 255 255 /1);
     --color-text-body: rgb(0 0 0 / .8);
-    --color-text-headings: rgb(0 0 0 / 1);
+    --color-text-headings: rgb(0 0 0 / 1); */
+    --color-body-bg: rgb(0 0 0 /1);
+    --color-text-body: rgb(255 255 255 / .8);
+    --color-text-headings: rgb(255 255 255 / 1);
     --color-a: rgb(255 0 255 / .7);
     --color-a-hover: rgb(255 0 255 / 1);
 
     /* Definition: typeface */
-    --font-body: Helvetica, Arial, sans-serif;
-    --font-heading: Georgia, serif;
+    --font-body: system-ui, Helvetica, Arial, sans-serif;
+    --font-heading: system-ui, Georgia, serif;
 
     /* Sizing units (not so necessary) */
     --container-width: 1200px;
+    --unit-small: 1em;
+    --unit-medium: 2em;
+    --unit-large: 4em;
 
 }
 
@@ -168,16 +182,83 @@ body {
     }
 
     /* - Setting size for each grid */
-    .one-half { grid-column: span 6 / span 6; }
-    .one-third { grid-column: span 4 / span 4; }
-    .two-thirds { grid-column: span 8 / span 8; }
-    .one-fourth { grid-column: span 3 / span 3; }
-    .three-fourths { grid-column: span 9 / span 9; }
+    .one-half { grid-column: auto / span 6; }
+    .one-third { grid-column: auto / span 4; }
+    .two-thirds { grid-column: auto / span 8; }
+    .one-fourth { grid-column: auto / span 3; }
+    .three-fourths { grid-column: auto / span 9; }
 
+    /* -12 Column Classes */
+    .col-1 {grid-column: auto / span 1; }
+    .col-2 {grid-column: auto / span 2; }
+    .col-3 {grid-column: auto / span 3; }
+    .col-4 {grid-column: auto / span 4; }
+    .col-5 {grid-column: auto / span 5; }
+    .col-6 {grid-column: auto / span 6; }
+    .col-7 {grid-column: auto / span 7; }
+    .col-8 {grid-column: auto / span 8; }
+    .col-9 {grid-column: auto / span 9; }
+    .col-10 {grid-column: auto / span 10; }
+    .col-11 {grid-column: auto / span 11; }
+    .col-12 {grid-column: auto / span 12; }
+
+    /*  - Centered columns */
+    .one-half.centered {grid-column: 4 / span 6; }
+    .one-third.centered {grid-column: 5 / span 4; } 
+    .two-thirds.centered {grid-column: 3 / span 8; } 
+
+    /* - Pushes */
+    .push-1 { grid-column-start: 2; }
+    .push-2 { grid-column-start: 3; }
+    .push-3 { grid-column-start: 4; }
+    .push-4 { grid-column-start: 5; }
+    .push-5 { grid-column-start: 6; }
+    .push-6 { grid-column-start: 7; }
+    .push-7 { grid-column-start: 8; }
+    .push-8 { grid-column-start: 9; }
+    .push-9 { grid-column-start: 10; }
+    .push-10 { grid-column-start: 11; }
+    .push-11 { grid-column-start: 12; }
 }
 
+
 .demo > * {
-    background-color: #888;
+    background-color: #444;
     padding: 1em;;
     text-align: center;
 }
+
+/* ------------------- */
+/* -  SITE STRUCTURE - */
+/* ------------------- */
+
+/* SITE HEADER */
+.site-header {
+    background-color: pink;
+    /* - Put all the children side-by-side. */
+    display: flex;
+    justify-content: space-between;
+
+    /* - Add some general spacing/padding arond the header. */
+    padding: var(--unit-small);
+}
+
+/* SITE MAIN */
+.site-main {
+    /* background-color: skyblue; */
+}
+
+/* SECTIONS */
+section {
+    padding: var(--unit-large) var(--unit-small);
+}
+
+/* SITE FOOTER */
+.site-footer {
+    background-color: tomato;
+
+        /* - Add some general spacing/padding arond the footer. */
+    padding: var(--unit-small);
+}
+
+
