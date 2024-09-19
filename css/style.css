@@ -20,6 +20,7 @@ CSS TOC
         # SITE-NAV
     # MAIN
         # SECTIONS
+            # HERO
     # FOOTER
 
 -------------------------
@@ -42,6 +43,9 @@ CSS TOC
     --color-text-headings: rgb(255 255 255 / 1);
     --color-a: rgb(255 0 255 / .7);
     --color-a-hover: rgb(255 0 255 / 1);
+    --color-siteheader-bg: rgb(50 50 50 / 0);
+    --color-links-siteheader: rgb(255 255 255 / 1);
+    --color-hero-bg: rgb(100 100 100 /1);
 
     /* Definition: typeface */
     --font-body: system-ui, Helvetica, Arial, sans-serif;
@@ -121,6 +125,15 @@ img {
     max-width: 100%;
     height: auto;
 }
+
+/* GLOBAL HELPERS
+-- Hide elements visually but not from screen readers and search engines. */
+.hide-visually {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+
 
 /* ------------------- */
 /* -----  LAYOUT ----- */
@@ -219,6 +232,12 @@ body {
     .push-9 { grid-column-start: 10; }
     .push-10 { grid-column-start: 11; }
     .push-11 { grid-column-start: 12; }
+
+    /* SWAP (REVERSE) COLUMNS - WORKS ONLY w/ 2 CHILDREN*/
+    .row.swapped > *:first-child { order: 2; }
+    .row.swapped > *:last-child { order: 1; }
+
+
 }
 
 
@@ -234,13 +253,56 @@ body {
 
 /* SITE HEADER */
 .site-header {
-    background-color: pink;
+    background-color: var(--color-siteheader-bg);
     /* - Put all the children side-by-side. */
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
     /* - Add some general spacing/padding arond the header. */
     padding: var(--unit-small);
+
+    position: absolute;
+    width: 100%;
+
+    /* - Remove link underlines and set header link color*/
+    a {
+        color: transparent;
+        text-decoration: none;
+    }
+
+    /* SITE LOGO */
+    .site-logo {
+        display: flex;
+        align-items: center;
+        gap: 1em;
+
+        /* - Remove margins and resize h1 inside header */
+        h1 {
+            font-size: 2em;
+            margin: 0;
+        }
+
+    }
+
+    /* #SITE-NAV */
+    .site-nav {
+
+        ul {
+            margin: 0;
+            list-style: none;
+            display: flex;
+        }
+
+        a{
+            /* - Adding clickable areas around each links. */
+            display: block;
+            padding: 1em;
+        }
+
+    }
+
+
 }
 
 /* SITE MAIN */
@@ -251,6 +313,12 @@ body {
 /* SECTIONS */
 section {
     padding: var(--unit-large) var(--unit-small);
+}
+
+/* HERO SECTION */
+.hero {
+    background-color: var(--color-hero-bg);
+    padding-top: calc(6em + car(--unit-large));
 }
 
 /* SITE FOOTER */
