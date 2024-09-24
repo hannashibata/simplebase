@@ -23,6 +23,10 @@ CSS TOC
             # HERO
     # FOOTER
 
+# UI COMPONENTS
+    # BUTTONS
+    # CARDS
+
 -------------------------
 ---------------------- */
 
@@ -39,8 +43,10 @@ CSS TOC
     --color-text-body: rgb(0 0 0 / .8);
     --color-text-headings: rgb(0 0 0 /1);
 
-    --color-a: rgb(0 0 102 / .8);
-    --color-a-hover: rgb(0 0 102 / 1);
+    --color-a-dark: rgb(255 149  0 / 1);
+    --color-a-darker: rgb(147 93 0 / 1);
+    --color-a-light: rgb(255 226 185 / 1);
+    --color-a-lighter: rgb(255 255 255 / 1);
     
     --color-siteheader-bg: transparent;
     --color-siteheader-a: rgb(255 255 255 / 1);
@@ -93,11 +99,11 @@ h1, h2, h3 {
 
 a {
     /* SET THE COLOR OF ALL TEXT LINKS */
-    color: var(--color-a);
+    color: var(--color-a-dark);
 
     /* SET THE COLOR OF ALL HOVER STATES ON TEXT LINKS */
     &:hover {
-        color: var(--color-a-hover);
+        color: var(--color-a-darker);
     }
 }
 
@@ -404,5 +410,49 @@ section {
     }
 
 }
+
+/* -------------------- */
+/* --  UI COMPONENTS -- */
+/* -------------------- */
+
+/* BUTTONS */
+.button {
+    /* SET THE CORE COLORS */
+    border: 1px solid var(--color-a-dark);
+    background-color: var(--color-a-dark);
+    color: white;
+
+    /* ENABLE BOX MODEL STYLING */
+    display: inline-block;
+    padding: var(--unit-small);
+    margin: var(--unit-small) 0;
+
+    /* GET RID OF THE UNDERLINE */
+    text-decoration: none;
+
+    + .button {
+        margin-left: var(--unit-small);
+    }
+
+    &:hover {
+        color: #fff;
+        background-color: var(--color-a-darker);
+        border-color: var(--color-a-darker);
+
+    }
+
+    &.light {
+        border-color: var(--color-a-light);
+        background-color: var(--color-a-light);
+        color: var(--color-a-darker);
+
+        &.hover {
+            border-color: var(--color-a-lighter);
+            background-color: var(--color-a-lighter);
+        }
+    }
+
+}
+
 
 
