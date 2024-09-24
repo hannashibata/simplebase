@@ -35,17 +35,15 @@ CSS TOC
 :root {
 
     /* DEFINE ALL COMMONLY USED COLORS HERE */
-    /* --color-body-bg: rgb(255 255 255 /1);
-    --color-text-body: rgb(0 0 0 / .8);
-    --color-text-headings: rgb(0 0 0 / 1); */
     --color-body-bg: rgb(0 0 0 /1);
     --color-text-body: rgb(255 255 255 / .8);
     --color-text-headings: rgb(255 255 255 / 1);
-    --color-a: rgb(255 0 255 / .7);
-    --color-a-hover: rgb(255 0 255 / 1);
-    --color-siteheader-background: transparent;
+    --color-a: rgb(255 255 255 / .7);
+    --color-a-hover: rgb(255 255 255 / 1);
+    --color-siteheader-bg: transparent;
     --color-links-siteheader: rgb(255 255 255 / 1);
     --color-hero-bg: rgb(100 100 100 /1);
+    --color-sitefooter-bg: rgb(100 100 100 /1);
 
     /*  DEFINE ALL FONTS USED HERE */
     --font-body: system-ui, Helvetica, Arial, sans-serif;
@@ -267,7 +265,6 @@ body {
     .row.swapped > *:first-child { order: 2; }
     .row.swapped > *:last-child { order: 1; }
 
-
 }
 
 
@@ -286,20 +283,24 @@ body {
     background-color: var(--color-siteheader-bg);
     
     /* PUT ALL HEADER CHILDREN SIDE-BY-SIDE AND VERT CENTERED */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @media (min-width: 768px) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
     /* ADD SOME GENERAL SPACING AROUND THE HEADER */
     padding: var(--unit-small);
 
     /* RENDER HEADER ON TOP OF HERO */
-    position: absolute;
-    width: 100%;
+    @media (min-width: 787px) {
+        position: absolute;
+        width: 100%;
+    }
 
     /* REMOVE LINK UNDERLINES AND SET SITE HEADER LINK COLOR */
     a {
-        color: transparent;
+        color: var(--color-links-siteheader);
         text-decoration: none;
     }
 
@@ -326,20 +327,22 @@ body {
         ul {
             /* REMOVE MARGINS & BULLETS FROM LIST */
             margin: 0;
+            padding: 0;
             list-style: none;
 
             /* DISPLAY CHILDREN SIDE-BY-SIDE */
-            display: flex;
+            @media (min-width: 768px) {
+                display: flex;
+            }
         }
 
         /* MAKE SITE NAV LINKS BIG LIKE BUTTONS */
-        a{
+        a {
             display: block;
             padding: 1em;
         }
 
     }
-
 
 }
 
@@ -363,10 +366,19 @@ section {
 
 /* SITE FOOTER */
 .site-footer {
-    background-color: tomato;
+    background-color: var(--color-sitefooter-bg);
 
     /* ADD SOME GENERAL PADDING AROUND THE FOOTER */
     padding: var(--unit-small);
+
+    .site-nav {
+        ul {
+            list-style: none;
+            margin: 0;
+            padding:0;
+        }
+    }
+
 }
 
 
