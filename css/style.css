@@ -446,7 +446,7 @@ section {
         background-color: var(--color-a-light);
         color: var(--color-a-darker);
 
-        &.hover {
+        &:hover {
             border-color: var(--color-a-lighter);
             background-color: var(--color-a-lighter);
         }
