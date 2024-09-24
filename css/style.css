@@ -35,15 +35,24 @@ CSS TOC
 :root {
 
     /* DEFINE ALL COMMONLY USED COLORS HERE */
-    --color-body-bg: rgb(0 0 0 /1);
-    --color-text-body: rgb(255 255 255 / .8);
-    --color-text-headings: rgb(255 255 255 / 1);
-    --color-a: rgb(255 255 255 / .7);
-    --color-a-hover: rgb(255 255 255 / 1);
+    --color-body-bg: rgb(255 255 255 /1);
+    --color-text-body: rgb(0 0 0 / .8);
+    --color-text-headings: rgb(0 0 0 /1);
+
+    --color-a: rgb(0 0 102 / .8);
+    --color-a-hover: rgb(0 0 102 / 1);
+    
     --color-siteheader-bg: transparent;
-    --color-links-siteheader: rgb(255 255 255 / 1);
+    --color-siteheader-a: rgb(255 255 255 / 1);
+    
     --color-hero-bg: rgb(100 100 100 /1);
+    --color-hero-headings: rgb(255 255 255 /1);
+    --color-hero-text: rgb(255 255 255 /.8);
+    
     --color-sitefooter-bg: rgb(100 100 100 /1);
+    --color-sitefooter-text: rgb(255 255 255 /.8);
+    --color-sitefooter-headings: rgb(255 255 255 /1);
+    --color-sitefooter-a: rgb(255 255 255 /1);
 
     /*  DEFINE ALL FONTS USED HERE */
     --font-body: system-ui, Helvetica, Arial, sans-serif;
@@ -300,7 +309,7 @@ body {
 
     /* REMOVE LINK UNDERLINES AND SET SITE HEADER LINK COLOR */
     a {
-        color: var(--color-links-siteheader);
+        color: var(--color-siteheader-a);
         text-decoration: none;
     }
 
@@ -359,17 +368,32 @@ section {
 /* HERO SECTION */
 .hero {
     background-color: var(--color-hero-bg);
+    color: var(--color-hero-text);
 
     /* ADD MORE SPACE ON TOP FOR THE ABSOLUTE HEADER */
     padding-top: calc(4em + var(--unit-large));
+
+    h1, h2, h3 {
+        color: var(--color-hero-headings);
+    }
 }
 
 /* SITE FOOTER */
 .site-footer {
     background-color: var(--color-sitefooter-bg);
+    color: var(--color-sitefooter-text);
 
     /* ADD SOME GENERAL PADDING AROUND THE FOOTER */
     padding: var(--unit-small);
+
+    h1, h2, h3 {
+        color: var(--color-sitefooter-headings);
+    }
+
+    a{
+        color: var(--color-sitefooter-a);
+    }
+
 
     .site-nav {
         ul {
