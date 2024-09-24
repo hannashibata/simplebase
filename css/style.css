@@ -34,7 +34,7 @@ CSS TOC
 
 :root {
 
-    /* Definition: color */
+    /* DEFINE ALL COMMONLY USED COLORS HERE */
     /* --color-body-bg: rgb(255 255 255 /1);
     --color-text-body: rgb(0 0 0 / .8);
     --color-text-headings: rgb(0 0 0 / 1); */
@@ -43,15 +43,15 @@ CSS TOC
     --color-text-headings: rgb(255 255 255 / 1);
     --color-a: rgb(255 0 255 / .7);
     --color-a-hover: rgb(255 0 255 / 1);
-    --color-siteheader-bg: rgb(50 50 50 / 0);
+    --color-siteheader-background: transparent;
     --color-links-siteheader: rgb(255 255 255 / 1);
     --color-hero-bg: rgb(100 100 100 /1);
 
-    /* Definition: typeface */
+    /*  DEFINE ALL FONTS USED HERE */
     --font-body: system-ui, Helvetica, Arial, sans-serif;
     --font-heading: system-ui, Georgia, serif;
 
-    /* Sizing units (not so necessary) */
+    /* SIZING UNITS */
     --container-width: 1200px;
     --unit-small: 1em;
     --unit-medium: 2em;
@@ -59,21 +59,28 @@ CSS TOC
 
 }
 
-/* GLOBAL RESET 
--- Change box-sizing for all to border box.
--- Remove defaut 8px margin around body. */
+/* GLOBAL RESET */
+
+/* CHANGE BOX-SIZING FOR ALL TO BORDER-BOX */
 * { box-sizing: border-box; }
+
+/* REMOVE THE DEFAULT 8px MARGIN ON THE BODY */
 body { margin: 0; }
 
 
-/* GLOBAL COLORS
--- Set the color of the main body background and copy. */
+/* GLOBAL COLORS */
 body {
+
+    /* SET THE COLOR OF THE MAIN BODY BACKGROUND */
     background-color: var(--color-body-bg);
+
+    /* SET THE COLOR OF THE MAIN BODY TEXT */
     color: var(--color-text-body);
 }
 
 h1, h2, h3 {
+
+    /* SET THE COLOR OF ALL HEADINGS H1-etc */
     color: var(--color-text-headings);
 }
 
@@ -81,53 +88,74 @@ a {
     /* SET THE COLOR OF ALL TEXT LINKS */
     color: var(--color-a);
 
+    /* SET THE COLOR OF ALL HOVER STATES ON TEXT LINKS */
     &:hover {
-         /* SET THE COLOR OF ALL HOVER STATES ON TEXT LINKS */
         color: var(--color-a-hover);
     }
 }
 
-/* GLOBAL TYPOGRAPHY
--- Set the font for the main body copy and headings. */
+/* GLOBAL TYPOGRAPHY */
 body {
+
+    /* SET THE FONT FOR ALL MAIN BODY TEXT */
     font-family: var(--font-body);
+
+    /* SET THE LEADING (LINE-HEIGHT) FOR ALL BODY TEXT */
     line-height: 1.4;
 }
 
 h1, h2, h3 {
+
+    /* SET THE FONT FOR ALL HEADINGS */
     font-family: var(--font-heading);
 }
 
 h1 {
-    font-size:  3em;
-    line-height: 1;
+    /* SET H1 FONT SIZE */
+    font-size: 3em;
+
+    /* SET H1 LEADING */
+    line-height: 1.1;
 }
 
 h2 {
-    font-size:  2em;
+    /* SET H2 FONT SIZE */
+    font-size: 2em;
+
+    /* SET H2 LEADING */
     line-height: 1.2;
 }
 
+
 h3 {
-    font-size:  1.5em;
+    /* SET H3 FONT SIZE */
+    font-size: 1.5em;
+
+    /* SET H3 LEADING */
     line-height: 1.3;
 }
 
+
 p {
-    /* Width limitter and widow slayer for all paragraphs. */
-    max-width: 66ch;
+    /* LIMIT THE WIDTH OF ALL PARAGRAPHS */
+    max-width: 65ch;
+
+    /* NEW SCHOOL WIDOW SLAYER */
     text-wrap: pretty;
+
 }
 
-/* GLOBAL MEDIA
--- Make all the images shrink on small screens. */
+/* GLOBAL MEDIA */
 img {
+
+    /* MAKE ALL IMAGES SHRINK ON SMALL SCREENS */
     max-width: 100%;
-    height: auto;
+    height: auto; 
 }
 
-/* GLOBAL HELPERS
--- Hide elements visually but not from screen readers and search engines. */
+/* GLOBAL HELPERS */
+
+/* HIDE ELEMENTS VISUALLY BUT NOT FROM SCREEN READERS AND SEACH ENGINES */
 .hide-visually {
     position: absolute;
     top: -9999px;
@@ -164,11 +192,12 @@ body {
     }
 }
 
-/* CONTAINER
--- Set the max width of the site.
--- Center the container horizontally. */
+/* CONTAINER */
 .container {
+    /* SET THE MAX WIDTH OF YOUR SITE (eg 1200px) */
     max-width: var(--container-width);
+
+    /* CENTER THE CONTAINER HORIZONTALLY*/
     margin-left: auto;
     margin-right: auto;
 }
@@ -181,7 +210,7 @@ body {
 /* - All the children under row */
 .row > * {
 
-    /* - Setting bttom margin for each fraction*/
+    /* - Setting bttom margin for each fraction */
     margin-bottom: var(--gridgap);
 }
 
@@ -194,14 +223,15 @@ body {
         gap: var(--gridgap)
     }
 
-    /* - Setting size for each grid */
+    /* COMMONLY USED SEMANTIC COLUMN WIDTHS
+       - Setting size for each grid */
     .one-half { grid-column: auto / span 6; }
     .one-third { grid-column: auto / span 4; }
     .two-thirds { grid-column: auto / span 8; }
     .one-fourth { grid-column: auto / span 3; }
     .three-fourths { grid-column: auto / span 9; }
 
-    /* -12 Column Classes */
+    /* - 12 Column Classes */
     .col-1 {grid-column: auto / span 1; }
     .col-2 {grid-column: auto / span 2; }
     .col-3 {grid-column: auto / span 3; }
@@ -233,7 +263,7 @@ body {
     .push-10 { grid-column-start: 11; }
     .push-11 { grid-column-start: 12; }
 
-    /* SWAP (REVERSE) COLUMNS - WORKS ONLY w/ 2 CHILDREN*/
+    /* SWAP (REVERSE) COLUMNS - WORKS ONLY w/ 2 CHILDREN  */
     .row.swapped > *:first-child { order: 2; }
     .row.swapped > *:last-child { order: 1; }
 
@@ -254,18 +284,20 @@ body {
 /* SITE HEADER */
 .site-header {
     background-color: var(--color-siteheader-bg);
-    /* - Put all the children side-by-side. */
+    
+    /* PUT ALL HEADER CHILDREN SIDE-BY-SIDE AND VERT CENTERED */
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    /* - Add some general spacing/padding arond the header. */
+    /* ADD SOME GENERAL SPACING AROUND THE HEADER */
     padding: var(--unit-small);
 
+    /* RENDER HEADER ON TOP OF HERO */
     position: absolute;
     width: 100%;
 
-    /* - Remove link underlines and set header link color*/
+    /* REMOVE LINK UNDERLINES AND SET SITE HEADER LINK COLOR */
     a {
         color: transparent;
         text-decoration: none;
@@ -273,14 +305,17 @@ body {
 
     /* SITE LOGO */
     .site-logo {
+
+        /* PUT SITE LOGO CHILDREN SIDE-BY-SIDE AND CENTER */
         display: flex;
         align-items: center;
         gap: 1em;
 
-        /* - Remove margins and resize h1 inside header */
+        /* REMOVE MARGINS AND RESIZE H1 INSIDE HEADER */
         h1 {
             font-size: 2em;
             margin: 0;
+            text-wrap: nowrap;
         }
 
     }
@@ -289,13 +324,16 @@ body {
     .site-nav {
 
         ul {
+            /* REMOVE MARGINS & BULLETS FROM LIST */
             margin: 0;
             list-style: none;
+
+            /* DISPLAY CHILDREN SIDE-BY-SIDE */
             display: flex;
         }
 
+        /* MAKE SITE NAV LINKS BIG LIKE BUTTONS */
         a{
-            /* - Adding clickable areas around each links. */
             display: block;
             padding: 1em;
         }
@@ -307,7 +345,7 @@ body {
 
 /* SITE MAIN */
 .site-main {
-    /* background-color: skyblue; */
+
 }
 
 /* SECTIONS */
@@ -318,14 +356,16 @@ section {
 /* HERO SECTION */
 .hero {
     background-color: var(--color-hero-bg);
-    padding-top: calc(6em + car(--unit-large));
+
+    /* ADD MORE SPACE ON TOP FOR THE ABSOLUTE HEADER */
+    padding-top: calc(4em + var(--unit-large));
 }
 
 /* SITE FOOTER */
 .site-footer {
     background-color: tomato;
 
-        /* - Add some general spacing/padding arond the footer. */
+    /* ADD SOME GENERAL PADDING AROUND THE FOOTER */
     padding: var(--unit-small);
 }
 
