@@ -43,9 +43,9 @@ CSS TOC
     --color-text-body: rgb(0 0 0 / .8);
     --color-text-headings: rgb(0 0 0 /1);
 
-    --color-a-dark: rgb(255 149  0 / 1);
-    --color-a-darker: rgb(147 93 0 / 1);
-    --color-a-light: rgb(255 226 185 / 1);
+    --color-a-dark: rgb(102 102 102 / 1);
+    --color-a-darker: rgb(10 10 10 / 1);
+    --color-a-light: rgb(200 200 200 / 1);
     --color-a-lighter: rgb(255 255 255 / 1);
     
     --color-siteheader-bg: transparent;
@@ -173,6 +173,14 @@ img {
     position: absolute;
     top: -9999px;
     left: -9999px;
+}
+
+@media (max-width: 767px) {
+    .hide-visually-smallonly {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
 }
 
 
@@ -307,17 +315,11 @@ body {
     /* ADD SOME GENERAL SPACING AROUND THE HEADER */
     padding: var(--unit-small);
 
-    /* RENDER HEADER ON TOP OF HERO */
-    @media (min-width: 787px) {
-        position: absolute;
-        width: 100%;
-    }
-
-    /* REMOVE LINK UNDERLINES AND SET SITE HEADER LINK COLOR */
+   /* REMOVE LINK UNDERLINES */
     a {
-        color: var(--color-siteheader-a);
         text-decoration: none;
     }
+    
 
     /* SITE LOGO */
     .site-logo {
@@ -344,11 +346,10 @@ body {
             margin: 0;
             padding: 0;
             list-style: none;
-
-            /* DISPLAY CHILDREN SIDE-BY-SIDE */
-            @media (min-width: 768px) {
-                display: flex;
-            }
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        
         }
 
         /* MAKE SITE NAV LINKS BIG LIKE BUTTONS */
@@ -360,6 +361,30 @@ body {
     }
 
 }
+
+/* PLACE SITE HEADER ON TOP OF HERO ON LARGE SCREENS */
+.site-header.on-top-of-hero {
+
+    @media (min-width: 787px) {
+
+        /* RENDER HEADER ON TOP OF HERO */
+        position: absolute;
+        width: 100%;
+
+        /* SET SITE HEADER LINK COLOR ON LARGE SCREENS */
+        a {
+            color: var(--color-siteheader-a);
+        }
+
+        /* ADD MORE SPAGE ON TOP FOR THE ABSOLUTE HEADER */
+        & + .site-main > .hero {
+            padding-top: calc(4em + var(--unit-large));
+        }
+    }
+
+}
+
+
 
 /* SITE MAIN */
 .site-main {
