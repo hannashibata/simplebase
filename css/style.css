@@ -1,23 +1,26 @@
 /* ----------------------
 -------------------------
-CSS TOC
+CSS TABLE OF CONTENTS
 
-#GLOBAL STYLES
+# GLOBAL STYLES
     # GLOBAL VARIABLES
     # GLOBAL RESET
     # GLOBAL COLORS
     # GLOBAL TYPOGRAPHY
     # GLOBAL MEDIA
+    # GLOBAL HELPERS
 
 # LAYOUT
-    # MEDIA QUERIES / BREAKOUTS (RESPONSIVE TYPOGRAPHY)
+    # MEDIA QUERIES / BREAKPOINTS (RESPONSIVE TYPOGRAPHY)
     # CONTAINER
     # GRID
 
 # SITE STRUCTURE
     # HEADER
         # LOGO
-        # SITE-NAV
+        # SITE NAV
+            # TOGGLE MENU
+        # SITE-HEADER-ON-TOP-OF-HERO
     # MAIN
         # SECTIONS
             # HERO
@@ -26,6 +29,7 @@ CSS TOC
 # UI COMPONENTS
     # BUTTONS
     # CARDS
+
 
 -------------------------
 ---------------------- */
@@ -225,13 +229,14 @@ body {
 
 /* GRID */
 .row {
-    --gridgap: 1em;
+    --gridgap: 2em;
 }
 
 /* - All the children under row */
 .row > * {
 
     /* - Setting bttom margin for each fraction */
+    margin-top: var(--gridgap);
     margin-bottom: var(--gridgap);
 }
 
@@ -358,6 +363,74 @@ body {
             padding: 1em;
         }
 
+        /* TOGGLE MENU */
+
+        /*HIDE MENU BUTTON IF NOT USING TOGGLE MENU  */
+        .site-menu-button {
+            display: none;
+        }
+
+        &.toggle-menu {
+
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+
+            /* SHOW MENU BUTTON IF USING TOGGLE NAV */
+            .site-menu-button {
+                display: block;
+                background-color: transparent;
+                border: 1px solid black;
+                padding: .5em;
+            }
+
+            .site-menu {
+                position: fixed;
+                top: 0;
+                right: 0;                    z-index: 50;
+                background-color: pink;
+                width: 100%;
+                min-height: 100svh;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                font-size: 3vw;
+
+                a {
+                    padding: 2vh 2vw;
+                }
+
+            }
+
+            &[data-menustate="open"] {
+
+                .site-menu-button {
+                    position: fixed;
+                    z-index: 100;
+                }
+
+                /* SHOW THE SITE MENU WHEN OPEN */
+                .site-menu {
+                    transform: translateX(0);
+                }
+            }
+
+            &[data-menustate="closed"] {
+
+                /* MOVE THE SIDE MENU TO THE RIGHT WHEN CLOSED */
+                .site-menu {
+                    transform: translateX(100%);
+                }
+            }
+        }
+
+    }
+
+    /* IF TOGGLE MENU DISPLAY LOGO LEFT AND MENU RIGHT ON ALL SCREENS */
+    &:has(.toggle-menu) {
+
+        display: flex;
+        /* justify-content:  */
     }
 
 }
