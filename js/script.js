@@ -6,7 +6,7 @@ const toggleMenuButton = document.querySelector('.site-menu-button');
 
 toggleMenuButton.onclick = function() {
   
-  if (toggleMenuMenu.getAttribute('data-menustate') === 'closed') {
+  if (toggleMenu.getAttribute('data-menustate') === 'closed') {
     
     // if closesd, open
     toggleMenu.setAttribute('data-menustate','open');
@@ -14,7 +14,7 @@ toggleMenuButton.onclick = function() {
   } else {
     
     // else, close it
-    toggleMenuMenu.setAttribute('data-menustate','closed');
+    toggleMenu.setAttribute('data-menustate','closed');
     
   } 
   
