@@ -2,19 +2,19 @@
 
 // TOGGLE MENU
 const toggleMenu = document.querySelector('.toggle-menu');
-const toggleMenuButton = document.querySelector('.site-meny-button');
+const toggleMenuButton = document.querySelector('.site-menu-button');
 
 toggleMenuButton.onclick = function() {
   
-  if (theMenu.getAttribute('data-menustate') === 'closed') {
+  if (toggleMenuMenu.getAttribute('data-menustate') === 'closed') {
     
     // if closesd, open
-    theMenu.setAttribute('data-menustate','open');
+    toggleMenu.setAttribute('data-menustate','open');
   
   } else {
     
     // else, close it
-    theMenu.setAttribute('data-menustate','closed');
+    toggleMenuMenu.setAttribute('data-menustate','closed');
     
   } 
   

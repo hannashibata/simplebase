@@ -69,7 +69,7 @@ CSS TABLE OF CONTENTS
     --font-heading: system-ui, Georgia, serif;
 
     /* SIZING UNITS */
-    --container-width: 1200px;
+    --container-width: 1100px;
     --unit-small: 1em;
     --unit-medium: 2em;
     --unit-large: 4em;
@@ -192,7 +192,7 @@ img {
 /* -----  LAYOUT ----- */
 /* ------------------- */
 
-/* RESPONSIVE TYPOGRAPHY BIA MEDIA QUERIES */
+/* RESPONSIVE TYPOGRAPHY VIA MEDIA QUERIES */
 
 /* SMALL SCREENS (Mobile , 767px) */
 body {
@@ -246,7 +246,7 @@ body {
         /* - Create grid in 12 columns, with equal fractions */
         display: grid;
         grid-template-columns: repeat(12, 1fr);
-        gap: var(--gridgap)
+        gap: var(--gridgap);
     }
 
     /* COMMONLY USED SEMANTIC COLUMN WIDTHS
@@ -295,7 +295,7 @@ body {
 
 }
 
-
+/* FOR DEMO PURPOSES */
 .demo > * {
     background-color: #444;
     padding: 1em;;
@@ -332,6 +332,7 @@ body {
         /* PUT SITE LOGO CHILDREN SIDE-BY-SIDE AND CENTER */
         display: flex;
         align-items: center;
+        justify-content: center;
         gap: 1em;
 
         /* REMOVE MARGINS AND RESIZE H1 INSIDE HEADER */
@@ -382,12 +383,19 @@ body {
                 background-color: transparent;
                 border: 1px solid black;
                 padding: .5em;
+                position: relative;
+                z-index: 100;
+
+                &:hover {
+                    cursor: pointer;
+                }
             }
 
             .site-menu {
                 position: fixed;
                 top: 0;
-                right: 0;                    z-index: 50;
+                right: 0; 
+                z-index: 50;
                 background-color: pink;
                 width: 100%;
                 min-height: 100svh;
@@ -395,6 +403,7 @@ body {
                 justify-content: center;
                 align-items: center;
                 font-size: 3vw;
+                transition: .4s all ease-out;
 
                 a {
                     padding: 2vh 2vw;
@@ -404,6 +413,7 @@ body {
 
             &[data-menustate="open"] {
 
+                /* SET MENU BUTTON TO FIXED WHEN MENU IS OPEN */
                 .site-menu-button {
                     position: fixed;
                     z-index: 100;
@@ -430,7 +440,7 @@ body {
     &:has(.toggle-menu) {
 
         display: flex;
-        /* justify-content:  */
+        justify-content: space-between;
     }
 
 }
@@ -515,7 +525,7 @@ section {
 
 /* BUTTONS */
 .button {
-    /* SET THE CORE COLORS */
+    /* SET THE BUTTON COLORS */
     border: 1px solid var(--color-a-dark);
     background-color: var(--color-a-dark);
     color: white;
@@ -539,6 +549,7 @@ section {
 
     }
 
+    /* LIGHT BUTTON VARIANT */
     &.light {
         border-color: var(--color-a-light);
         background-color: var(--color-a-light);
