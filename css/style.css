@@ -43,9 +43,15 @@ CSS TABLE OF CONTENTS
 :root {
 
     /* DEFINE ALL COMMONLY USED COLORS HERE */
-    --color-body-bg: rgb(255 255 255 /1);
+    /* LIGHT MODE */
+    /* --color-body-bg: rgb(255 255 255 /1);
     --color-text-body: rgb(0 0 0 / .8);
-    --color-text-headings: rgb(0 0 0 /1);
+    --color-text-headings: rgb(0 0 0 /1); */
+
+    /* DARK MODE */
+    --color-body-bg: rgb(0 0 0 /1);
+    --color-text-body: rgb(255 255 255 / .8);
+    --color-text-headings: rgb(255 255 255 /1);
 
     --color-a-dark: rgb(102 102 102 / 1);
     --color-a-darker: rgb(10 10 10 / 1);
@@ -53,7 +59,7 @@ CSS TABLE OF CONTENTS
     --color-a-lighter: rgb(255 255 255 / 1);
     
     --color-siteheader-bg: transparent;
-    --color-siteheader-a: rgb(255 255 255 / 1);
+    --color-siteheader-a: var(--color-text-headings);
     
     --color-hero-bg: rgb(100 100 100 /1);
     --color-hero-headings: rgb(255 255 255 /1);
@@ -344,8 +350,8 @@ body {
 
     }
 
-    /* #SITE-NAV */
-    .site-nav {
+    /* #SITE-HEADER-NAV */
+    .site-header-nav {
 
         ul {
             /* REMOVE MARGINS & BULLETS FROM LIST */
@@ -364,105 +370,137 @@ body {
             padding: 1em;
         }
 
-        /* TOGGLE MENU */
+    }
 
-        /*HIDE MENU BUTTON IF NOT USING TOGGLE MENU  */
-        .site-menu-button {
-            display: none;
+}
+
+/* TOGGLE MENU */
+
+/*HIDE MENU BUTTON IF NOT USING TOGGLE MENU  */
+.site-menu-button {
+    display: none;
+}
+
+.toggle-menu {
+
+    --color-togglemenu-bg: green;
+    --color-togglemenu-text: pink;
+
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+
+    /* SHOW MENU BUTTON IF USING TOGGLE NAV */
+    .site-menu-button {
+        display: block;
+        background-color: transparent;
+        border: 1px solid var(--color-siteheader-a);
+        color: var(--color-siteheader-a);
+        padding: .5em;
+        position: relative;
+        z-index: 100;
+        transition: all .4s ease-out;
+
+        /* RESET THE FONT SIZE */
+        font-size: inherit;
+
+        &:hover {
+            cursor: pointer;
         }
 
-        &.toggle-menu {
+        /* ADD SUPPORT FOR NAVICON/HAMBURGER ICON */
+        &:has(svg) {
 
+            /* VERTICALLY ALIGN THE MENU TEXT W ICON */
             display: flex;
-            flex-direction: row-reverse;
-            align-items: center;
+            align-content: center;
+            gap: var(--unit-small);
 
-            /* SHOW MENU BUTTON IF USING TOGGLE NAV */
-            .site-menu-button {
-                display: block;
-                background-color: transparent;
-                border: 1px solid black;
-                padding: .5em;
-                position: relative;
-                z-index: 100;
-
-                &:hover {
-                    cursor: pointer;
-                }
+            /* REMOVE BORDER */
+            border: none;
+            
+            /* SET THE COLOR OF THE SVG TO MATCH */
+            svg {
+                fill: var(--color-siteheader-a);
             }
 
-            .site-menu {
-                position: fixed;
-                top: 0;
-                right: 0; 
-                z-index: 50;
-                background-color: pink;
-                width: 100%;
-                min-height: 100svh;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                font-size: 3vw;
-                transition: .4s all ease-out;
+        }
+    }
 
-                a {
-                    padding: 2vh 2vw;
-                }
+    .site-menu {
+        /* SET COLOR TO TOGGLE MENU */
+        background-color: var(--color-togglemenu-bg);
+        color: var(--color-togglemenu-text);
 
-            }
+        position: fixed;
+        top: 0;
+        right: 0; 
+        z-index: 50;
+        width: 100%;
+        min-height: 100svh;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 3vw;
+        transition: .4s all ease-out;
 
-            &[data-menustate="open"] {
-
-                /* SET MENU BUTTON TO FIXED WHEN MENU IS OPEN */
-                .site-menu-button {
-                    position: fixed;
-                    z-index: 100;
-                }
-
-                /* SHOW THE SITE MENU WHEN OPEN */
-                .site-menu {
-                    transform: translateX(0);
-                }
-            }
-
-            &[data-menustate="closed"] {
-
-                /* MOVE THE SIDE MENU TO THE RIGHT WHEN CLOSED */
-                .site-menu {
-                    transform: translateX(100%);
-                }
-            }
+        a {
+            color: var(--color-togglemenu-text);
+            padding: 2vh 2vw;
         }
 
     }
 
+    &[data-menustate="open"] {
+
+        /* CHANGE COLOR TO TOGGLE MENU COLORS */
+        --color-siteheader-a: var(--color-togglemenu-text);
+
+        /* SET MENU BUTTON TO FIXED WHEN MENU IS OPEN */
+        .site-menu-button {
+            position: fixed;
+            z-index: 100;
+        }
+
+        /* SHOW THE SITE MENU WHEN OPEN */
+        .site-menu {
+            transform: translateX(0);
+        }
+    }
+
+    &[data-menustate="closed"] {
+
+        /* MOVE THE SIDE MENU TO THE RIGHT WHEN CLOSED */
+        .site-menu {
+            transform: translateX(100%);
+        }
+    }
+
     /* IF TOGGLE MENU DISPLAY LOGO LEFT AND MENU RIGHT ON ALL SCREENS */
-    &:has(.toggle-menu) {
+    .site-header:has(.toggle-menu) {
 
         display: flex;
         justify-content: space-between;
     }
-
 }
 
 /* PLACE SITE HEADER ON TOP OF HERO ON LARGE SCREENS */
 .site-header.on-top-of-hero {
 
-    @media (min-width: 787px) {
+    /* RENDER HEADER ON TOP OF HERO */
+    position: absolute;
+    width: 100%;
 
-        /* RENDER HEADER ON TOP OF HERO */
-        position: absolute;
-        width: 100%;
+    /* SET SITE HEADER LINK COLOR ON LARGE SCREENS */
 
-        /* SET SITE HEADER LINK COLOR ON LARGE SCREENS */
-        a {
-            color: var(--color-siteheader-a);
-        }
+    --color-siteheader-a: var(--color-hero-headings);
+    a {
+        color: var(--color-siteheader-a);
+    }
 
-        /* ADD MORE SPAGE ON TOP FOR THE ABSOLUTE HEADER */
-        & + .site-main > .hero {
-            padding-top: calc(4em + var(--unit-large));
-        }
+    /* ADD MORE SPAGE ON TOP FOR THE ABSOLUTE HEADER */
+    & + .site-main > .hero {
+        padding-top: calc(4em + var(--unit-large));
     }
 
 }
@@ -509,7 +547,7 @@ section {
     }
 
 
-    .site-nav {
+    .site-footer-nav {
         ul {
             list-style: none;
             margin: 0;
