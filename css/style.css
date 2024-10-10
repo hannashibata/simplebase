@@ -20,6 +20,7 @@ CSS TABLE OF CONTENTS
         # LOGO
         # SITE NAV
             # TOGGLE MENU
+                # NAVICON / HAMBURGER
         # SITE-HEADER-ON-TOP-OF-HERO
     # MAIN
         # SECTIONS
@@ -28,8 +29,11 @@ CSS TABLE OF CONTENTS
 
 # UI COMPONENTS
     # BUTTONS
-    # CARDS
 
+# ANIMATION
+    # SMOOTH SCROLLING
+
+# CUSTOM STYLING
 
 -------------------------
 ---------------------- */
@@ -127,34 +131,27 @@ body {
     line-height: 1.4;
 }
 
+/* SET THE FONT & MARGIN FOR ALL HEADINGS */
 h1, h2, h3 {
-
-    /* SET THE FONT FOR ALL HEADINGS */
     font-family: var(--font-heading);
+    margin: .4em 0;
 }
 
+/* SET H1 FONT SIZE & LEADING */
 h1 {
-    /* SET H1 FONT SIZE */
     font-size: 3em;
-
-    /* SET H1 LEADING */
     line-height: 1.1;
 }
 
+/* SET H2 FONT SIZE & LEADING */
 h2 {
-    /* SET H2 FONT SIZE */
     font-size: 2em;
-
-    /* SET H2 LEADING */
     line-height: 1.2;
 }
 
-
+/* SET H3 FONT SIZE & LEADING */
 h3 {
-    /* SET H3 FONT SIZE */
     font-size: 1.5em;
-
-    /* SET H3 LEADING */
     line-height: 1.3;
 }
 
@@ -341,6 +338,11 @@ body {
         justify-content: center;
         gap: 1em;
 
+        /* PLACE SITE LOGO ON TOP OF DRAWER MENU */
+        /* NOTE: LOGO WILL SCROLL AWAY - NEED TO ADD SUPPORT FOR FIXED */
+        /* position: relative; */
+        z-index: 100;
+
         /* REMOVE MARGINS AND RESIZE H1 INSIDE HEADER */
         h1 {
             font-size: 2em;
@@ -419,9 +421,15 @@ body {
             /* REMOVE BORDER */
             border: none;
             
-            /* SET THE COLOR OF THE SVG TO MATCH */
+            /* SET TSVG COLOR */
             svg {
                 fill: var(--color-siteheader-a);
+            }
+
+            /* ADD SUPPORT FOR SVG ANIMATION (">" MEANS "IMEDIATE CHILD") */
+            svg > * {
+                transition: .2s all ease-out;
+                transform-origin: center;
             }
 
         }
@@ -466,6 +474,34 @@ body {
         .site-menu {
             transform: translateX(0);
         }
+
+        /* ANIMATE THE NAVICON / HAMBURGER TO AN X */
+        .site-menu-button svg {
+
+            .simple-navicon-top {
+                /* transform: rotate(45deg); */
+                rotate: 45deg;
+                translate: -21% 25%;
+
+            }
+
+            .simple-navicon-middle {
+                opacity: 0;
+            }
+
+
+            .simple-navicon-bottom {
+                rotate: -45deg;
+                translate: -21% -25%;
+            }
+
+            
+
+        }
+
+
+
+
     }
 
     &[data-menustate="closed"] {
@@ -602,4 +638,11 @@ section {
 }
 
 
+/* -------------------- */
+/* --    ANIMATION   -- */
+/* -------------------- */
 
+/* ADD SUPPORT FOR SMOOTH SCROLLING */
+html {
+    scroll-behavior: smooth;
+}

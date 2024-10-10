@@ -19,3 +19,11 @@ toggleMenuButton.onclick = function() {
   } 
   
 };
+
+// CLOSE THE TOGGLE MENU WHENEVER A USESR CLICKS ON A MENU LINK
+const toggleMenuLinks = document.querySelectorAll('.toggle-menu a');
+toggleMenuLinks.forEach((el) => {
+  el.onclick = () => {
+    toggleMenu.setAttribute('data-menustate','closed');
+  }
+});
