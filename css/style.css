@@ -1,5 +1,6 @@
 /* ----------------------
 -------------------------
+
 CSS TABLE OF CONTENTS
 
 # GLOBAL STYLES
@@ -47,6 +48,7 @@ CSS TABLE OF CONTENTS
 :root {
 
     /* DEFINE ALL COMMONLY USED COLORS HERE */
+
     /* LIGHT MODE */
     /* --color-body-bg: rgb(255 255 255 /1);
     --color-text-body: rgb(0 0 0 / .8);
@@ -76,7 +78,7 @@ CSS TABLE OF CONTENTS
 
     /*  DEFINE ALL FONTS USED HERE */
     --font-body: system-ui, Helvetica, Arial, sans-serif;
-    --font-heading: system-ui, Georgia, serif;
+    --font-heading: system-ui, Helvetica, Arial, sans-serif;
 
     /* SIZING UNITS */
     --container-width: 1100px;
@@ -166,16 +168,16 @@ p {
 }
 
 /* GLOBAL MEDIA */
-img {
 
-    /* MAKE ALL IMAGES SHRINK ON SMALL SCREENS */
+/* MAKE ALL IMAGES SHRINK ON SMALL SCREENS */
+img {
     max-width: 100%;
     height: auto; 
 }
 
 /* GLOBAL HELPERS */
 
-/* HIDE ELEMENTS VISUALLY BUT NOT FROM SCREEN READERS AND SEACH ENGINES */
+/* HIDE ELEMENTS VISUALLY BUT NOT FROM SCREEN READERS AND SEARCH ENGINES */
 .hide-visually {
     position: absolute;
     top: -9999px;
@@ -328,7 +330,6 @@ body {
         text-decoration: none;
     }
     
-
     /* SITE LOGO */
     .site-logo {
 
@@ -338,11 +339,6 @@ body {
         justify-content: center;
         gap: 1em;
 
-        /* PLACE SITE LOGO ON TOP OF DRAWER MENU */
-        /* NOTE: LOGO WILL SCROLL AWAY - NEED TO ADD SUPPORT FOR FIXED */
-        /* position: relative; */
-        z-index: 100;
-
         /* REMOVE MARGINS AND RESIZE H1 INSIDE HEADER */
         h1 {
             font-size: 2em;
@@ -350,9 +346,14 @@ body {
             text-wrap: nowrap;
         }
 
+        /* REMOVE THE SPACE UDER THE LOGO MARK */
+        img, svg {
+            display: block;
+        }
+
     }
 
-    /* #SITE-HEADER-NAV */
+    /* SITE-HEADER-NAV */
     .site-header-nav {
 
         ul {
@@ -385,8 +386,8 @@ body {
 
 .toggle-menu {
 
-    --color-togglemenu-bg: green;
-    --color-togglemenu-text: pink;
+    --color-togglemenu-bg: white;
+    --color-togglemenu-text: black;
 
     display: flex;
     flex-direction: row-reverse;
@@ -401,7 +402,7 @@ body {
         padding: .5em;
         position: relative;
         z-index: 100;
-        transition: all .4s ease-out;
+        transition: .4s all ease-out;
 
         /* RESET THE FONT SIZE */
         font-size: inherit;
@@ -482,25 +483,18 @@ body {
                 /* transform: rotate(45deg); */
                 rotate: 45deg;
                 translate: -21% 25%;
-
             }
 
             .simple-navicon-middle {
                 opacity: 0;
             }
 
-
             .simple-navicon-bottom {
                 rotate: -45deg;
                 translate: -21% -25%;
             }
 
-            
-
         }
-
-
-
 
     }
 
@@ -517,6 +511,13 @@ body {
 
         display: flex;
         justify-content: space-between;
+    }
+
+    /* PLACE SITE LOGO ON TOP OF DRAWER MENU */
+    .site-logo {
+    /* NOTE: LOGO WILL SCROLL AWAY - NEED TO ADD SUPPORT FOR FIXED */
+    /* position: relative; */
+    z-index: 100;
     }
 }
 
@@ -560,6 +561,12 @@ section {
 
     /* ADD MORE SPACE ON TOP FOR THE ABSOLUTE HEADER */
     padding-top: calc(4em + var(--unit-large));
+
+    h1 {
+        font-size: 4em;
+        line-height: 1;
+        text-wrap: balance;
+    }
 
     h1, h2, h3 {
         color: var(--color-hero-headings);
