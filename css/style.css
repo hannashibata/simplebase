@@ -50,14 +50,14 @@ CSS TABLE OF CONTENTS
     /* DEFINE ALL COMMONLY USED COLORS HERE */
 
     /* LIGHT MODE */
-    /* --color-body-bg: rgb(255 255 255 /1);
+    --color-body-bg: rgb(255 255 255 /1);
     --color-text-body: rgb(0 0 0 / .8);
-    --color-text-headings: rgb(0 0 0 /1); */
+    --color-text-headings: rgb(0 0 0 /1);
 
     /* DARK MODE */
-    --color-body-bg: rgb(0 0 0 /1);
+    /* --color-body-bg: rgb(0 0 0 /1);
     --color-text-body: rgb(255 255 255 / .8);
-    --color-text-headings: rgb(255 255 255 /1);
+    --color-text-headings: rgb(255 255 255 /1); */
 
     --color-a-dark: rgb(102 102 102 / 1);
     --color-a-darker: rgb(10 10 10 / 1);
@@ -386,8 +386,8 @@ body {
 
 .toggle-menu {
 
-    --color-togglemenu-bg: white;
-    --color-togglemenu-text: black;
+    --color-togglemenu-bg: black;
+    --color-togglemenu-text: white;
 
     display: flex;
     flex-direction: row-reverse;
