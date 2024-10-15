@@ -59,9 +59,11 @@ CSS TABLE OF CONTENTS
     --color-text-body: rgb(255 255 255 / .8);
     --color-text-headings: rgb(255 255 255 /1); */
 
-    --color-a-dark: rgb(102 102 102 / 1);
-    --color-a-darker: rgb(10 10 10 / 1);
-    --color-a-light: rgb(200 200 200 / 1);
+    --color-a: blue;
+    --color-a-hover: darkblue;
+    --color-a-dark: blue;
+    --color-a-darker: darkblue;
+    --color-a-light: lightblue;
     --color-a-lighter: rgb(255 255 255 / 1);
     
     --color-siteheader-bg: transparent;
@@ -115,11 +117,11 @@ h1, h2, h3 {
 
 a {
     /* SET THE COLOR OF ALL TEXT LINKS */
-    color: var(--color-a-dark);
+    color: var(--color-a);
 
     /* SET THE COLOR OF ALL HOVER STATES ON TEXT LINKS */
     &:hover {
-        color: var(--color-a-darker);
+        color: var(--color-a-hover);
     }
 }
 
